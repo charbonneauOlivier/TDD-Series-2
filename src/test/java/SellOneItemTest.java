@@ -14,8 +14,8 @@ public class SellOneItemTest
     public void setup()
     {
         final BarcodeDataBase barcodeDatabase = new BarcodeDataBase();
-        _lcdScreen = new LcdScreen(barcodeDatabase);
-        _barcodeReceiver = new BarcodeReceiver(_lcdScreen);
+        _lcdScreen = new LcdScreen();
+        _barcodeReceiver = new BarcodeReceiver(_lcdScreen, barcodeDatabase);
     }
 
     @Test

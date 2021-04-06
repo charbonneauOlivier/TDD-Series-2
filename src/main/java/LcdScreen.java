@@ -1,18 +1,15 @@
 public class LcdScreen
 {
     private String _currentDisplayPrice;
-    private BarcodeDataBase _barcodeDatabase;
 
-    public LcdScreen(final BarcodeDataBase barcodeDatabase)
+    public LcdScreen()
     {
-        _barcodeDatabase = barcodeDatabase;
     }
 
-    public void displayPriceFor(final String barcode)
+    public void displayPrice(final String price)
     {
-
-        _currentDisplayPrice = _barcodeDatabase.getPriceForBarcode(barcode);
-        System.out.println(_currentDisplayPrice);
+        _currentDisplayPrice = price;
+        System.out.println(price);
     }
 
     public String getCurrentDisplayPrice()
