@@ -38,4 +38,11 @@ public class SellOneItemTest
         _barcodeReceiver.onBarcodeReceived("3");
         assertThat(_lcdScreen.getCurrentDisplayPrice(), is(equalTo("Error: Unknown item")));
     }
+
+    @Test
+    public void whenNullBarcodeScanned_ShowErrorOnDisplay()
+    {
+        _barcodeReceiver.onBarcodeReceived(null);
+        assertThat(_lcdScreen.getCurrentDisplayPrice(), is(equalTo("Error: Unknown item")));
+    }
 }
