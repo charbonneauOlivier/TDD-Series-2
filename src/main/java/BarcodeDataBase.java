@@ -6,6 +6,8 @@ public class BarcodeDataBase
     {
         switch(barcode)
         {
+            case "2":
+                return "2$";
             default:
                 return "1$";
         }

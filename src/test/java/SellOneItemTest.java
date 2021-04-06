@@ -24,4 +24,11 @@ public class SellOneItemTest
         _barcodeReceiver.onBarcodeReceived("1");
         assertThat(_lcdScreen.getCurrentDisplayPrice(), is(equalTo("1$")));
     }
+    
+    @Test
+    public void whenBarcodeScanned_ShownPriceIsEqualToPriceInDatabase()
+    {
+        _barcodeReceiver.onBarcodeReceived("2");
+        assertThat(_lcdScreen.getCurrentDisplayPrice(), is(equalTo("2$")));
+    }
 }
