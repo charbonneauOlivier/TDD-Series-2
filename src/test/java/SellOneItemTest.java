@@ -45,4 +45,17 @@ public class SellOneItemTest
         _barcodeReceiver.onBarcodeReceived(null);
         assertThat(_lcdScreen.getCurrentDisplayPrice(), is(equalTo("Error: Unknown item")));
     }
+
+    @Test
+    public void whenNotaNumberBarcodeScanned_ShowErrorOnDisplay()
+    {
+        _barcodeReceiver.onBarcodeReceived("dgrfhrtyb");
+        assertThat(_lcdScreen.getCurrentDisplayPrice(), is(equalTo("Error: Unknown item")));
+
+        _barcodeReceiver.onBarcodeReceived("*/-+");
+        assertThat(_lcdScreen.getCurrentDisplayPrice(), is(equalTo("Error: Unknown item")));
+
+        _barcodeReceiver.onBarcodeReceived("-1*2+3=1");
+        assertThat(_lcdScreen.getCurrentDisplayPrice(), is(equalTo("Error: Unknown item")));
+    }
 }
